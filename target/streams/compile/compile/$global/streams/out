@@ -1,0 +1,7 @@
+[0m[[0m[31merror[0m] [0m[0m/home/bilel/Desktop/TestTechnique/dlp-test/app/views/index.scala.html:3:38: value randomService is not a member of object controllers.HomeController[0m
+[0m[[0m[31merror[0m] [0m[0m<a href="@controllers.HomeController.randomService">Count</a>[0m
+[0m[[0m[31merror[0m] [0m[0m                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/bilel/Desktop/TestTechnique/dlp-test/app/views/random.scala.html:1:38: value randomService is not a member of object controllers.HomeController[0m
+[0m[[0m[31merror[0m] [0m[0m<a href="@controllers.HomeController.randomService">Count</a>[0m
+[0m[[0m[31merror[0m] [0m[0m                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
