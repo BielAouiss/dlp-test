@@ -4,7 +4,7 @@
 		module="dlp-test$sources"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20191008172757"
+		publication="20191009132412"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>

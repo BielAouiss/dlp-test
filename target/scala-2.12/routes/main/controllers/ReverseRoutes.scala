@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/bilel/Desktop/TestTechnique/dlp-test/conf/routes
-// @DATE:Tue Oct 08 19:46:52 CEST 2019
+// @DATE:Wed Oct 09 16:49:27 CEST 2019
 
 import play.api.mvc.Call
 

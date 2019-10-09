@@ -26,6 +26,8 @@
 
   <logger name="play" level="INFO" />
   <logger name="application" level="DEBUG" />
+
+
   <!-- Debugging the cache -->
   <logger name="play.api.libs.ws.ahc.cache" level="TRACE" />
 

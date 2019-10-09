@@ -30,11 +30,11 @@ object showAllImgsView extends _root_.play.twirl.api.BaseScalaTemplate[play.twir
       {
 
 
-Seq[Any](format.raw/*2.1*/("""<a href="/randomService" class="button">Random Image</a>
+Seq[Any](format.raw/*2.1*/("""<input type="submit" onclick="location.href='/randomService';" value="Show One Image" />
 <ul>
 """),_display_(/*4.2*/for(index <- 0 until list.size) yield /*4.33*/ {_display_(Seq[Any](format.raw/*4.35*/("""
         """),format.raw/*5.9*/("""<li>
-                <img src="""),_display_(/*6.27*/list/*6.31*/.get(index).getDownload_url()),format.raw/*6.60*/("""  """),format.raw/*6.62*/("""width ="200" height="250" ></img>
+                <img src="""),_display_(/*6.27*/list/*6.31*/.get(index).getDownload_url()),format.raw/*6.60*/("""  """),format.raw/*6.62*/("""width="200" height="250" ></img>
         </li>
 """)))}),format.raw/*8.2*/("""
 
@@ -56,10 +56,10 @@ Seq[Any](format.raw/*2.1*/("""<a href="/randomService" class="button">Random Ima
 
               /*
                   -- GENERATED --
-                  DATE: Tue Oct 08 20:01:46 CEST 2019
+                  DATE: Wed Oct 09 16:51:10 CEST 2019
                   SOURCE: /home/bilel/Desktop/TestTechnique/dlp-test/app/views/showAllImgsView.scala.html
-                  HASH: d3d0ee183eafa85bb37ccae9b0582e6d569757b7
-                  MATRIX: 966->1|1082->24|1170->87|1216->118|1255->120|1290->129|1347->160|1359->164|1408->193|1437->195|1515->244|1546->248
+                  HASH: 2114582c68a8fb4227553a21fd03eaf49832b635
+                  MATRIX: 966->1|1082->24|1202->119|1248->150|1287->152|1322->161|1379->192|1391->196|1440->225|1469->227|1546->275|1577->279
                   LINES: 28->1|33->2|35->4|35->4|35->4|36->5|37->6|37->6|37->6|37->6|39->8|43->12
                   -- GENERATED --
               */

@@ -31,8 +31,8 @@ object hello extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Html
 
 
 Seq[Any](format.raw/*2.1*/("""
-"""),format.raw/*3.1*/("""<a href="/randomService" >All images</a>
 
+"""),format.raw/*4.1*/("""<input type="submit" onclick="location.href='/randomService';" value="Show Multiple Image" />
 <img src="""),_display_(/*5.11*/url),format.raw/*5.14*/(""" """),format.raw/*5.15*/("""/>
 
 """))
@@ -51,11 +51,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Oct 08 20:01:46 CEST 2019
+                  DATE: Wed Oct 09 16:51:10 CEST 2019
                   SOURCE: /home/bilel/Desktop/TestTechnique/dlp-test/app/views/hello.scala.html
-                  HASH: ea3fdbdbcf62124817dff81e3ea1e7d313aa44ae
-                  MATRIX: 948->1|1057->17|1084->18|1162->70|1185->73|1213->74
-                  LINES: 28->1|33->2|34->3|36->5|36->5|36->5
+                  HASH: 122d2d7e5ae3d342060e04185755237b02d89ec1
+                  MATRIX: 948->1|1057->17|1085->19|1215->123|1238->126|1266->127
+                  LINES: 28->1|33->2|35->4|36->5|36->5|36->5
                   -- GENERATED --
               */
           

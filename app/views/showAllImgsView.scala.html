@@ -1,9 +1,9 @@
 @(list: List[ImageMap])
-<a href="/randomService" class="button">Random Image</a>
+<input type="submit" onclick="location.href='/randomService';" value="Show One Image" />
 <ul>
 @for(index <- 0 until list.size) {
         <li>
-                <img src=@list.get(index).getDownload_url()  width ="200" height="250" ></img>
+                <img src=@list.get(index).getDownload_url()  width="200" height="250" ></img>
         </li>
 }
 

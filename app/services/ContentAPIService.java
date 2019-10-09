@@ -1,26 +1,37 @@
 package services;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.TreeNode;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import controllers.ImageMap;
+import play.libs.ws.WSRequest;
 
 import javax.inject.Singleton;
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 @Singleton
 public class ContentAPIService {
 
 
+    private Logger logger = Logger.getLogger("play");
+
     //generate random id to get different image
     public int getRandomId(){
+        logger.info("## get Random id ##");
+
         int id=0;
         Random random = new Random();
         //the last id of "https://picsum.photos/" is 1084
@@ -29,6 +40,7 @@ public class ContentAPIService {
     }
 
     public List<ImageMap> mapUrls(String givenUrl) throws IOException {
+        logger.info("## get jsonArray and convert it to a list of ImageMap ##");
 
         // Connect to the URL using java's native library
         URL url = new URL(givenUrl);
@@ -57,4 +69,6 @@ public class ContentAPIService {
 
     }
 
-}
+
+
+    }
