@@ -1,11 +1,14 @@
 package controllers;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.inject.Inject;
 import com.typesafe.config.Config;
 import play.cache.NamedCache;
 import play.cache.SyncCacheApi;
-import play.libs.ws.WSClient;
+import play.libs.ws.*;
 import play.mvc.Controller;
 import play.mvc.Result;
 import services.ContentAPIService;
@@ -14,12 +17,25 @@ import services.ShowImageService;
 import services.TypeOfService;
 
 import java.io.IOException;
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.CompletionStage;
 
+import play.api.libs.ws.ahc.AhcWSResponse;
+import play.api.libs.ws.ahc.cache.CacheableHttpResponseBodyPart;
+import play.api.libs.ws.ahc.cache.CacheableHttpResponseHeaders;
+import play.api.libs.ws.ahc.cache.CacheableHttpResponseStatus;
+import play.shaded.ahc.io.netty.handler.codec.http.DefaultHttpHeaders;
+import play.shaded.ahc.org.asynchttpclient.Response;
+import play.shaded.ahc.org.asynchttpclient.uri.Uri;
 /**
  * This controller contains an action to handle HTTP requests
  * to the application's home page.
  */
-public class HomeController extends Controller {
+public class HomeController extends Controller implements WSBodyReadables, WSBodyWritables {
 
 
     boolean testAll = true;
@@ -29,7 +45,7 @@ public class HomeController extends Controller {
     private final Config config;
     @NamedCache("session-cache")
     SyncCacheApi cache;
-    private final WSClient wsClient;
+    public static  WSClient wsClient;
 
 
     @Inject
@@ -48,6 +64,32 @@ public class HomeController extends Controller {
     public Result index() {
         return ok(views.html.index.render());
     }
+
+
+   /* public Result testUrlCache() throws IOException {
+        //get service Type
+        ShowImageService showImageService = ServiceFactory.get(TypeOfService.ONEIMAGE);
+        WSRequest request = wsClient.url("https://picsum.photos/200/300");
+
+        WSRequest complexRequest =
+                request .setFollowRedirects(true)
+                        .addHeader("headerKey", "headerValue")
+                        .setRequestTimeout(Duration.of(1000, ChronoUnit.MILLIS))
+                        ;
+
+
+        final CompletionStage<WSResponse> responseThreePromise =
+                request
+                        .get()
+                        .thenCompose(responseOne -> System.out.println(wsClient.url(responseOne.getBody()).get()))
+                        .thenCompose(responseTwo -> wsClient.url(responseTwo.getBody()).get());
+
+        System.out.println("///////***--"+ responseThreePromise.toString());
+
+        return showImageService.showImage("");
+
+    }*/
+
 
     /**
      * This is where the test will be coded
@@ -101,6 +143,10 @@ public class HomeController extends Controller {
 
 
     }
+
+
+
+
 
 
 }

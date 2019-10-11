@@ -13,3 +13,4 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 GET     /test           controllers.HomeController.test
 GET     /testMultiple          controllers.HomeController.testMultiple
 GET     /randomService          controllers.HomeController.randomService
+GET     /testUrlCache          controllers.HomeController.testUrlCache

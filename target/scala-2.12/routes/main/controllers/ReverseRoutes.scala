@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/bilel/Desktop/TestTechnique/dlp-test/conf/routes
-// @DATE:Wed Oct 09 16:49:27 CEST 2019
+// @DATE:Thu Oct 10 14:24:52 CEST 2019
 
 import play.api.mvc.Call
 
@@ -24,6 +24,18 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "testMultiple")
     }
   
+    // @LINE:13
+    def test(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "test")
+    }
+  
+    // @LINE:16
+    def testUrlCache(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "testUrlCache")
+    }
+  
     // @LINE:15
     def randomService(): Call = {
       
@@ -34,12 +46,6 @@ package controllers {
     def index(): Call = {
       
       Call("GET", _prefix)
-    }
-  
-    // @LINE:13
-    def test(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "test")
     }
   
   }

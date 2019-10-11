@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/bilel/Desktop/TestTechnique/dlp-test/conf/routes
-// @DATE:Wed Oct 09 16:49:27 CEST 2019
+// @DATE:Thu Oct 10 14:24:52 CEST 2019
 
 package router
 
@@ -44,6 +44,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """test""", """controllers.HomeController.test"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """testMultiple""", """controllers.HomeController.testMultiple"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """randomService""", """controllers.HomeController.randomService"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """testUrlCache""", """controllers.HomeController.testUrlCache"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -141,6 +142,24 @@ class Routes(
     )
   )
 
+  // @LINE:16
+  private[this] lazy val controllers_HomeController_testUrlCache5_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("testUrlCache")))
+  )
+  private[this] lazy val controllers_HomeController_testUrlCache5_invoker = createInvoker(
+    HomeController_0.testUrlCache,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.HomeController",
+      "testUrlCache",
+      Nil,
+      "GET",
+      this.prefix + """testUrlCache""",
+      """""",
+      Seq()
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -172,6 +191,12 @@ class Routes(
     case controllers_HomeController_randomService4_route(params@_) =>
       call { 
         controllers_HomeController_randomService4_invoker.call(HomeController_0.randomService)
+      }
+  
+    // @LINE:16
+    case controllers_HomeController_testUrlCache5_route(params@_) =>
+      call { 
+        controllers_HomeController_testUrlCache5_invoker.call(HomeController_0.testUrlCache)
       }
   }
 }

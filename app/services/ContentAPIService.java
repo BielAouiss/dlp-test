@@ -1,74 +1,63 @@
 package services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.TreeNode;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import controllers.HomeController;
 import controllers.ImageMap;
-import play.libs.ws.WSRequest;
 
-import javax.inject.Singleton;
-import java.awt.*;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
-@Singleton
+
 public class ContentAPIService {
 
+    private JsonNode imagesAsJson;
+    private ObjectMapper objectMapper = new ObjectMapper();
+    private ImageMap[] images = {};
+    private static List<ImageMap> listOfImageMap = new ArrayList<ImageMap>();
 
     private Logger logger = Logger.getLogger("play");
 
     //generate random id to get different image
-    public int getRandomId(){
+    public int getRandomId() {
         logger.info("## get Random id ##");
 
-        int id=0;
+        int id = 0;
         Random random = new Random();
         //the last id of "https://picsum.photos/" is 1084
-        id=(int) random.nextInt(1084) ;
+        id = (int) random.nextInt(1084);
         return id;
     }
 
-    public List<ImageMap> mapUrls(String givenUrl) throws IOException {
-        logger.info("## get jsonArray and convert it to a list of ImageMap ##");
 
-        // Connect to the URL using java's native library
-        URL url = new URL(givenUrl);
-        URLConnection request = url.openConnection();
-        request.connect();
-        //get request content
-        InputStream in =((InputStream) request.getContent());
-        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-        StringBuilder result = new StringBuilder();
-        String line;
-        while((line = reader.readLine()) != null) {
-            result.append(line);
-        }
-        //create ObjectMapper using fasterxml
-        ObjectMapper mapper = new ObjectMapper();
+    public List<ImageMap> mapUrls2(String url) {
 
-        //  convert JSON array to List of objects
-        List<ImageMap> ppl2 = Arrays.asList(mapper.readValue(result.toString(), ImageMap[].class));
-        List<ImageMap> listOfImages = ppl2.stream()                // convert list to stream
-                .filter(image ->  Integer.parseInt(image.getId()) % 2 ==0)     // and get only Image with id muliple of 2
-                .collect(Collectors.toList());
+        HomeController.wsClient.url(url).get().thenApply(files -> {
+            this.imagesAsJson = files.asJson();
 
 
-        //return the list of our object ImageMap
-        return listOfImages;
+            try {
+                this.images = this.objectMapper.treeToValue(imagesAsJson, ImageMap[].class);
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
+
+
+            Arrays.stream(this.images).filter(img -> Integer.parseInt(img.getId()) % 2 == 0).forEach(img -> this.listOfImageMap.add(img));
+
+
+            listOfImageMap.forEach(img -> System.out.println(img.getId() + "IDDDDD"));
+
+            return this.listOfImageMap;
+        });
+
+        return this.listOfImageMap;
 
     }
 
 
-
-    }
+}
