@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/bilel/Desktop/TestTechnique/dlp-test/conf/routes
-// @DATE:Thu Oct 10 14:24:52 CEST 2019
+// @DATE:Mon Oct 14 17:56:55 CEST 2019
 
 package router
 
@@ -41,10 +41,9 @@ class Routes(
   def documentation = List(
     ("""GET""", this.prefix, """controllers.HomeController.index"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """test""", """controllers.HomeController.test"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """testMultiple""", """controllers.HomeController.testMultiple"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """test""", """controllers.HomeController.randomService"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """testMultiple""", """controllers.HomeController.randomService"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """randomService""", """controllers.HomeController.randomService"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """testUrlCache""", """controllers.HomeController.testUrlCache"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -89,15 +88,15 @@ class Routes(
   )
 
   // @LINE:13
-  private[this] lazy val controllers_HomeController_test2_route = Route("GET",
+  private[this] lazy val controllers_HomeController_randomService2_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("test")))
   )
-  private[this] lazy val controllers_HomeController_test2_invoker = createInvoker(
-    HomeController_0.test,
+  private[this] lazy val controllers_HomeController_randomService2_invoker = createInvoker(
+    HomeController_0.randomService,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
-      "test",
+      "randomService",
       Nil,
       "GET",
       this.prefix + """test""",
@@ -107,15 +106,15 @@ class Routes(
   )
 
   // @LINE:14
-  private[this] lazy val controllers_HomeController_testMultiple3_route = Route("GET",
+  private[this] lazy val controllers_HomeController_randomService3_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("testMultiple")))
   )
-  private[this] lazy val controllers_HomeController_testMultiple3_invoker = createInvoker(
-    HomeController_0.testMultiple,
+  private[this] lazy val controllers_HomeController_randomService3_invoker = createInvoker(
+    HomeController_0.randomService,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
-      "testMultiple",
+      "randomService",
       Nil,
       "GET",
       this.prefix + """testMultiple""",
@@ -142,24 +141,6 @@ class Routes(
     )
   )
 
-  // @LINE:16
-  private[this] lazy val controllers_HomeController_testUrlCache5_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("testUrlCache")))
-  )
-  private[this] lazy val controllers_HomeController_testUrlCache5_invoker = createInvoker(
-    HomeController_0.testUrlCache,
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.HomeController",
-      "testUrlCache",
-      Nil,
-      "GET",
-      this.prefix + """testUrlCache""",
-      """""",
-      Seq()
-    )
-  )
-
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -176,27 +157,21 @@ class Routes(
       }
   
     // @LINE:13
-    case controllers_HomeController_test2_route(params@_) =>
+    case controllers_HomeController_randomService2_route(params@_) =>
       call { 
-        controllers_HomeController_test2_invoker.call(HomeController_0.test)
+        controllers_HomeController_randomService2_invoker.call(HomeController_0.randomService)
       }
   
     // @LINE:14
-    case controllers_HomeController_testMultiple3_route(params@_) =>
+    case controllers_HomeController_randomService3_route(params@_) =>
       call { 
-        controllers_HomeController_testMultiple3_invoker.call(HomeController_0.testMultiple)
+        controllers_HomeController_randomService3_invoker.call(HomeController_0.randomService)
       }
   
     // @LINE:15
     case controllers_HomeController_randomService4_route(params@_) =>
       call { 
         controllers_HomeController_randomService4_invoker.call(HomeController_0.randomService)
-      }
-  
-    // @LINE:16
-    case controllers_HomeController_testUrlCache5_route(params@_) =>
-      call { 
-        controllers_HomeController_testUrlCache5_invoker.call(HomeController_0.testUrlCache)
       }
   }
 }

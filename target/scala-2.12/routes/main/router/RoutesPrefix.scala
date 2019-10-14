@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/bilel/Desktop/TestTechnique/dlp-test/conf/routes
-// @DATE:Thu Oct 10 14:24:52 CEST 2019
+// @DATE:Mon Oct 14 17:56:55 CEST 2019
 
 
 package router {

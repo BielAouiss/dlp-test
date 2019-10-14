@@ -32,7 +32,7 @@ object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Html
 
 Seq[Any](format.raw/*1.4*/("""
 
-"""),format.raw/*3.1*/("""<input type="submit" onclick="location.href='/randomService';" value="Random View" />
+"""),format.raw/*3.1*/("""<h1>Test</h1>
 
 """))
       }
@@ -50,9 +50,9 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Oct 09 16:51:10 CEST 2019
+                  DATE: Mon Oct 14 18:10:13 CEST 2019
                   SOURCE: /home/bilel/Desktop/TestTechnique/dlp-test/app/views/index.scala.html
-                  HASH: 405a7e3f81e958b2eb6257cb93a9a58f1a3b8b80
+                  HASH: bf22ee8d4340a947ed34be79b6dc6eb9c9989b77
                   MATRIX: 941->1|1037->3|1067->7
                   LINES: 28->1|33->1|35->3
                   -- GENERATED --

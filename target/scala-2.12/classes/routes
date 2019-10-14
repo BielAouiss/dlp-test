@@ -10,7 +10,7 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 
 #Route to test
-GET     /test           controllers.HomeController.test
-GET     /testMultiple          controllers.HomeController.testMultiple
+GET     /test           controllers.HomeController.randomService
+GET     /testMultiple          controllers.HomeController.randomService
 GET     /randomService          controllers.HomeController.randomService
-GET     /testUrlCache          controllers.HomeController.testUrlCache
+

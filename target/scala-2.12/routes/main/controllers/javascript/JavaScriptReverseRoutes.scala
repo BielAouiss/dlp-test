@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/bilel/Desktop/TestTechnique/dlp-test/conf/routes
-// @DATE:Thu Oct 10 14:24:52 CEST 2019
+// @DATE:Mon Oct 14 17:56:55 CEST 2019
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -19,42 +19,16 @@ package controllers.javascript {
     }
 
   
-    // @LINE:14
-    def testMultiple: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.testMultiple",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "testMultiple"})
-        }
-      """
-    )
-  
     // @LINE:13
-    def test: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.test",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "test"})
-        }
-      """
-    )
-  
-    // @LINE:16
-    def testUrlCache: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.testUrlCache",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "testUrlCache"})
-        }
-      """
-    )
-  
-    // @LINE:15
     def randomService: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.randomService",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "randomService"})
+        
+          if (true) {
+            return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "test"})
+          }
+        
         }
       """
     )

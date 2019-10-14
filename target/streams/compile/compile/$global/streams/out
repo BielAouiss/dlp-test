@@ -1,2 +1,2 @@
-[0m[[0m[31merror[0m] [0m[0m/home/bilel/Desktop/TestTechnique/dlp-test/app/services/ShowAllImages.java:54:1: ';' expected[0m
-[0m[[0m[31merror[0m] [0m[0m            res.addAll(Arrays.stream(this.images).filter(img -> Integer.parseInt(img.getId()) % 2 == 0).collect(Collectors.toList())));[0m
+[0m[[0m[31merror[0m] [0m[0m/home/bilel/Desktop/TestTechnique/dlp-test/app/controllers/HomeController.java:71:1: incompatible types: java.lang.String cannot be converted to boolean[0m
+[0m[[0m[31merror[0m] [0m[0m        else if("/testMulitple") return ok(views.html.random.render(contentAPIService.mapUrls(this.config.getString("multipleImg.url"))));[0m
